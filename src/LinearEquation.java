@@ -16,16 +16,16 @@ public class LinearEquation {
 
     // calculations
     public double distance(){
-        return roundedToHundredth(Math.sqrt(Math.pow(x2-x1,2) + Math.pow(y2-y1,2)));
+        return roundedToHundredth(Math.sqrt(Math.pow(x2-x1,2) + Math.pow(y2-y1,2))); // rounds input to hundredth
     }
 
     public double slope(){
-        double slope = (double) (y2 - y1) / (x2 - x1);
-        return roundedToHundredth(slope);
+        double slope = (double) (y2 - y1) / (x2 - x1); // difference of y - difference of x = slope
+        return roundedToHundredth(slope); // returns slope
     }
 
     public double yIntercept(){
-        return roundedToHundredth(y1 - (x1 * slope()));
+        return roundedToHundredth(y1 - (x1 * slope())); // y - slope * x = y intercept
     }
 
     //info about line & points
@@ -34,32 +34,32 @@ public class LinearEquation {
         int deltaY = y2 - y1;
         String equation = "";
         if (deltaX == 0) {
-            equation += "x = " + x1;
+            equation += "x = " + x1; // vertical line
             return equation;
         } else {
             equation += "y = ";
             if (deltaY == 0) {
-                equation += y1;
+                equation += y1; //horizontal line
                 return equation;
             }
             if (slope() == 1) {
-                equation += "x";
+                equation += "x"; // y = x
             } else if (slope() == -1) {
-                equation += "-x";
+                equation += "-x"; // y = -x
             } else if (slope() % 1 == 0) {
-                equation += (int) slope() + "x";
+                equation += (int) slope() + "x"; // y = (positive slope)x
             } else if (deltaX < 0 && deltaY < 0) {
-                equation += Math.abs(deltaY) + "/" + Math.abs(deltaX) + "x";
+                equation += Math.abs(deltaY) + "/" + Math.abs(deltaX) + "x"; // y = (slope)x
             } else if (deltaX < 0) {
-                equation += "-" + deltaY + "/" + Math.abs(deltaX) + "x";
+                equation += "-" + deltaY + "/" + Math.abs(deltaX) + "x"; // y = -(abs slope)x
             } else {
-                equation += deltaY + "/" + deltaX + "x" ;
+                equation += deltaY + "/" + deltaX + "x" ; // y = (slope)x
             }
             if (yIntercept() != 0) {
                 if (yIntercept() < 0) {
-                    equation += " - " + Math.abs(yIntercept());
+                    equation += " - " + Math.abs(yIntercept()); // negative intercept
                 } else {
-                    equation += " + " + yIntercept();
+                    equation += " + " + yIntercept(); // positive intercept
                 }
             }
         }
@@ -71,7 +71,7 @@ public class LinearEquation {
         return "(" + x + ", " + y + ")";
     }
 
-    public String lineInfo(){
+    public String lineInfo(){ // returns line info as string
         if (equation().equals("x = " + x1)){
             return "The points are on a vertical line: " + equation();
         }

@@ -42,8 +42,8 @@ public class LinearEquationLogic {
 
     //helper methods
     private void getCoords(){
-        System.out.print("Enter coordinate 1: ");
-        coord1 = scan.nextLine();
+        System.out.print("Enter coordinate 1: "); // asks for coords
+        coord1 = scan.nextLine(); // assigns coord to var
         System.out.print("Enter coordinate 2: ");
         coord2 = scan.nextLine();
     }
@@ -52,26 +52,26 @@ public class LinearEquationLogic {
         int commaIdx1 = coord1.indexOf(",");
         String strX1 = coord1.substring(1,commaIdx1);
         String strY1 = coord1.substring(commaIdx1 + 2 ,coord1.length()-1);
-        x1 = Integer.parseInt(strX1);
+        x1 = Integer.parseInt(strX1); // parse x and y as ints
         y1 = Integer.parseInt(strY1);
         int commaIdx2 = coord2.indexOf(",");
         String strX2 = coord2.substring(1,commaIdx2);
         String strY2 = coord2.substring(commaIdx2 + 2 ,coord2.length()-1);
-        x2 = Integer.parseInt(strX2);
+        x2 = Integer.parseInt(strX2); // parse x and y as ints
         y2 = Integer.parseInt(strY2);
 
-        line = new LinearEquation(x1,y1,x2,y2);
+        line = new LinearEquation(x1,y1,x2,y2); //creates LinearEquationObject with xy values
     }
 
     private void getData(){
         System.out.println(line.lineInfo());
         if (!line.equation().equals("x = " + x1)){
             System.out.println();
-            System.out.print("Enter a coordinate for x: ");
-            double x = scan.nextDouble();
+            System.out.print("Enter a coordinate for x: "); //asks for x value
+            double x = scan.nextDouble(); //assigns entered value into double var
             scan.nextLine();
             System.out.println();
-            System.out.println("The point on the line is: " + line.coordinateForX(x));
+            System.out.println("The point on the line is: " + line.coordinateForX(x)); //calculates corresponding y to entered x
         }
     }
 }
